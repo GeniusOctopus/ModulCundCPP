@@ -1,0 +1,572 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Vorlesung2 Montag 11. Oktober 2021 &#8212; Vorlesung 1 Dokumentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
+    <link rel="search" title="Suche" href="search.html" />
+    <link rel="prev" title="Vorlesung1 Montag 4. Oktober 2021" href="Vorlesung1.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="vorlesung2-montag-11-oktober-2021">
+<h1>Vorlesung2 Montag 11. Oktober 2021<a class="headerlink" href="#vorlesung2-montag-11-oktober-2021" title="Link zu dieser Überschrift">¶</a></h1>
+<div class="section" id="intro-zeiger">
+<h2>Intro Zeiger<a class="headerlink" href="#intro-zeiger" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="line-block">
+<div class="line">int i = 5; -&gt; Speicher in Strukturbreite von int (4 Byte) anlegen</div>
+<div class="line">int *iz = &amp;i; -&gt; zeigt auf gleichen Wert (Speicheradresse) wie i</div>
+</div>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span> <span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+ <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+ <span class="p">{</span>
+         <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+         <span class="kt">int</span> <span class="o">*</span><span class="n">iz</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">;</span>
+
+         <span class="n">printf</span><span class="p">(</span><span class="s">&quot;i ist %d und an Adresse %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+         <span class="n">printf</span><span class="p">(</span><span class="s">&quot;iz ist %p und hat den Value %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">iz</span><span class="p">,</span><span class="o">*</span><span class="n">iz</span><span class="p">);</span>
+
+         <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Ändern von i</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+         <span class="n">i</span> <span class="o">=</span> <span class="mi">66</span><span class="p">;</span>
+         <span class="n">printf</span><span class="p">(</span><span class="s">&quot;i ist %d  und an Adresse %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+         <span class="n">printf</span><span class="p">(</span><span class="s">&quot;iz ist %p und hat den Value %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">iz</span><span class="p">,</span><span class="o">*</span><span class="n">iz</span><span class="p">);</span>
+
+         <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Ändern von iz</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+         <span class="o">*</span><span class="n">iz</span> <span class="o">=</span> <span class="mi">77</span><span class="p">;</span>
+         <span class="n">printf</span><span class="p">(</span><span class="s">&quot;i ist %d  und an Adresse %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+         <span class="n">printf</span><span class="p">(</span><span class="s">&quot;iz ist %p und hat den Value %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">iz</span><span class="p">,</span><span class="o">*</span><span class="n">iz</span><span class="p">);</span>
+
+         <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><em>Zeichnung dazu</em></p>
+<a class="reference internal image-reference" href="_images/pointer.png"><img alt="Erklärung Pointer" src="_images/pointer.png" style="width: 800px;" /></a>
+<div class="line-block">
+<div class="line">Unterschied Call by Value und Call by Pointer</div>
+</div>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">CallByValue</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">CallByPointer</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">i</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="o">*</span><span class="n">i</span> <span class="o">=</span> <span class="o">*</span><span class="n">i</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kt">int</span> <span class="n">ii</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;1 ii ist jetzt %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">ii</span><span class="p">);</span>
+
+        <span class="n">CallByValue</span><span class="p">(</span><span class="n">ii</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;2 ii ist jetzt %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">ii</span><span class="p">);</span>
+
+        <span class="n">CallByPointer</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ii</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;3 ii ist jetzt %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">ii</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><em>Zeichnung dazu</em></p>
+<a class="reference internal image-reference" href="_images/callByValueOrPointer.png"><img alt="Erklärung call by Value vs call by Pointer" src="_images/callByValueOrPointer.png" style="width: 800px;" /></a>
+<p>Man kann in C jederzeit Speicher allokieren und deallokieren!</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kt">int</span> <span class="o">*</span><span class="n">i</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+        <span class="cm">/* Reservieren des dynamischen Speichers */</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span><span class="p">);</span>
+
+        <span class="o">*</span><span class="n">i</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;i ist %d und befindet sich an Speicheradresse %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="o">*</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">);</span>
+
+        <span class="cm">/* Speicher freigeben*/</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+
+        <span class="n">i</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/*</span>
+<span class="cm">        Ausgabe</span>
+<span class="cm">        i ist 100 und befindet sich an Speicheradresse 0x560a53b3b2a0</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/halbdynamischesAllokieren.png"><img alt="Halbdynamisches Allokieren von Speicher" src="_images/halbdynamischesAllokieren.png" style="width: 800px;" /></a>
+<p>Allokieren von Speicher am Beispiel von String Vectors</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;   /*printf*/</span><span class="cp"></span>
+<span class="cp">#include</span><span class="cpf">&lt;string.h&gt;  /*strcpy*/</span><span class="cp"></span>
+<span class="cp">#include</span><span class="cpf">&lt;stdlib.h&gt;  /*malloc, free*/</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kt">char</span> <span class="n">s1</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>                                   <span class="cm">/*statisches alloc - Speicher adresse im statischen Bereich*/</span>
+
+        <span class="kt">char</span> <span class="o">*</span><span class="n">s2</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>                                <span class="cm">/*Speichervariable*/</span>
+        <span class="n">s2</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">);</span>        <span class="cm">/*dynamisches alloc*/</span>
+
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="s">&quot;Inhalt in s1&quot;</span><span class="p">);</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">s2</span><span class="p">,</span> <span class="s">&quot;Inhalt in s2&quot;</span><span class="p">);</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;s1 ist: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">s1</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;s2 ist: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">s2</span><span class="p">);</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Zeichen 1 von s1 ist %c</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="o">*</span><span class="n">s1</span><span class="p">);</span>        <span class="cm">/*%c ist wieder Value und muss dereferenziert werden*/</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Zeichen 1 von s2 ist %c</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="o">*</span><span class="n">s2</span><span class="p">);</span>        <span class="cm">/*%c ist wieder Value und muss dereferenziert werden*/</span>
+
+        <span class="n">free</span><span class="p">(</span><span class="n">s2</span><span class="p">);</span>                                       <span class="cm">/*dynamischen Speicher freigeben*/</span>
+        <span class="n">s2</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>                                      <span class="cm">/*Reservierungsvariable auf NULL setzen*/</span>
+
+        <span class="cm">/*s1 ist weiterhin vorhanden*/</span>
+
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/vektorenHalbdynamischAllokieren.png"><img alt="(Halb)dynmaisches Allokieren von Speicher am Bsp. von strings (Vektoren)" src="_images/vektorenHalbdynamischAllokieren.png" style="width: 800px;" /></a>
+<p>Verschiedene Arten strings zu lesen</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kt">char</span> <span class="o">*</span><span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="o">*</span><span class="mi">20</span><span class="p">);</span>
+        <span class="kt">char</span> <span class="o">*</span><span class="n">sc</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s">&quot;Mustermann&quot;</span><span class="p">);</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;s ist [%s], sc ist [%s]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">sc</span><span class="p">);</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">20</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Zeichen %d ist %c</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;----------------------------------------</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">20</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">,</span><span class="n">sc</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Zeichen %d ist %c</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="o">*</span><span class="n">sc</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;s ist [%s], sc ist [%s]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">sc</span><span class="p">);</span>
+
+        <span class="n">free</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="eigene-funktion-zum-kopieren-von-strings">
+<h3>Eigene Funktion zum Kopieren von strings<a class="headerlink" href="#eigene-funktion-zum-kopieren-von-strings" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="kt">char</span> <span class="o">*</span> <span class="nf">mystrcpy</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span> <span class="n">dest</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">source</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="cm">/*Methode Student*/</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">source</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">!=</span><span class="sc">&#39;\0&#39;</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="n">dest</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="n">dest</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">char</span> <span class="o">*</span> <span class="nf">mystrcpychrack</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span> <span class="n">dest</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">source</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="cm">/*C++ Chrack*/</span>
+        <span class="k">for</span><span class="p">(;</span><span class="o">*</span><span class="n">source</span><span class="o">!=</span><span class="sc">&#39;\0&#39;</span><span class="p">;</span><span class="o">*</span><span class="n">dest</span><span class="o">=*</span><span class="n">source</span><span class="p">,</span><span class="n">dest</span><span class="o">++</span><span class="p">,</span><span class="n">source</span><span class="o">++</span><span class="p">);</span>
+        <span class="o">*</span><span class="n">dest</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kt">char</span> <span class="o">*</span><span class="n">a1</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="o">*</span><span class="mi">20</span><span class="p">);</span>
+
+        <span class="n">mystrcpy</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="s">&quot;Mustermann1&quot;</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Der Inhalt von a1 ist jetzt %s an Speicheradresse %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">a1</span><span class="p">,</span><span class="n">a1</span><span class="p">);</span>
+        <span class="n">mystrcpychrack</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="s">&quot;Mustermann2&quot;</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Der Inhalt von a1 ist jetzt %s an Speicheradresse %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">a1</span><span class="p">,</span><span class="n">a1</span><span class="p">);</span>
+
+        <span class="n">free</span><span class="p">(</span><span class="n">a1</span><span class="p">);</span>
+        <span class="n">a1</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/EigeneStrcpyFunktion.png"><img alt="Eigene Implementierung der strcpy Funktion" src="_images/EigeneStrcpyFunktion.png" style="width: 800px;" /></a>
+<p>Wichtig bis hier:</p>
+<a class="reference internal image-reference" href="_images/VeranschaulichungVektor.png"><img alt="" src="_images/VeranschaulichungVektor.png" style="width: 800px;" /></a>
+</div>
+<div class="section" id="eigene-implementierung-der-strcat-funktion">
+<h3>Eigene Implementierung der strcat Funktion:<a class="headerlink" href="#eigene-implementierung-der-strcat-funktion" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="n">include</span><span class="o">&lt;</span><span class="n">stdlib</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span>
+
+<span class="kt">char</span> <span class="o">*</span> <span class="n">mystrcpy</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span> <span class="n">dest</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">source</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="k">for</span><span class="p">(;</span><span class="o">*</span><span class="n">source</span><span class="o">!=</span><span class="sc">&#39;\0&#39;</span><span class="p">;</span><span class="o">*</span><span class="n">dest</span><span class="o">=*</span><span class="n">source</span><span class="p">,</span><span class="n">dest</span><span class="o">++</span><span class="p">,</span><span class="n">source</span><span class="o">++</span><span class="p">)</span>
+        <span class="o">*</span><span class="n">dest</span><span class="o">=</span><span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">dest</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">char</span> <span class="o">*</span> <span class="n">mystrcat</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span> <span class="n">dest</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">source</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="k">for</span><span class="p">(;</span><span class="o">*</span><span class="n">dest</span><span class="o">!=</span><span class="sc">&#39;\0&#39;</span><span class="p">;</span><span class="n">dest</span><span class="o">++</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nf">mystrcpy</span><span class="p">(</span><span class="n">dest</span><span class="p">,</span> <span class="n">source</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kt">char</span> <span class="o">*</span><span class="n">a1</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="o">*</span><span class="mi">20</span><span class="p">);</span>
+
+        <span class="n">mystrcpy</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="s">&quot;Mustermann, &quot;</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Der Inhalt von a1 ist jetzt %s an Speicheradresse %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">a1</span><span class="p">,</span><span class="n">a1</span><span class="p">);</span>
+
+        <span class="n">mystrcat</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="s">&quot;Hans&quot;</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Der Inhalt von a1 ist jetzt %s an Speicheradresse %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">a1</span><span class="p">,</span><span class="n">a1</span><span class="p">);</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">a1</span><span class="p">);</span>
+        <span class="n">a1</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span> <span class="cm">/*a1=0*/</span>
+
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/EigeneStrcatFunktion.png"><img alt="" src="_images/EigeneStrcatFunktion.png" style="width: 800px;" /></a>
+<p>Versuch Speicher dynamisch zu allokieren:</p>
+<a class="reference internal image-reference" href="_images/NonsenseDynamisch.png"><img alt="" src="_images/NonsenseDynamisch.png" style="width: 800px;" /></a>
+<p>Nonsense Code dazu:</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="cm">/* NONSENSE CODE */</span>
+
+<span class="kt">void</span> <span class="nf">mymalloc</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span> <span class="n">src</span><span class="p">,</span> <span class="kt">int</span> <span class="n">size</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">src</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="o">*</span><span class="n">size</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kt">char</span> <span class="o">*</span> <span class="n">s</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+        <span class="n">mymalloc</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="s">&quot;Mustermann&quot;</span><span class="p">);</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Ausgabe: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">s</span><span class="p">);</span>
+
+        <span class="n">free</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="klausuraufgabe-was-sind-die-ausgaben">
+<h2>Klausuraufgabe Was sind die Ausgaben?<a class="headerlink" href="#klausuraufgabe-was-sind-die-ausgaben" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kt">char</span> <span class="o">*</span><span class="n">a1</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="o">*</span><span class="mi">10</span><span class="p">);</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="s">&quot;Robert&quot;</span><span class="p">);</span>
+
+        <span class="kt">char</span> <span class="n">a2</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Hans&quot;</span><span class="p">;</span>
+
+        <span class="kt">char</span> <span class="o">*</span><span class="n">b1</span> <span class="o">=</span> <span class="n">a1</span><span class="p">;</span>
+        <span class="kt">char</span> <span class="o">*</span><span class="n">b2</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a2</span><span class="p">;</span>
+
+        <span class="kt">char</span> <span class="o">*</span><span class="n">e</span> <span class="o">=</span> <span class="n">b1</span><span class="p">;</span>
+        <span class="kt">char</span> <span class="o">*</span><span class="n">f</span> <span class="o">=</span> <span class="n">a1</span><span class="p">;</span>
+
+        <span class="n">f</span> <span class="o">=</span> <span class="n">e</span><span class="p">;</span>
+
+        <span class="n">e</span> <span class="o">=</span> <span class="n">f</span><span class="p">;</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="s">&quot;Karl&quot;</span><span class="p">);</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Ausagbe a1: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">a1</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Ausagbe a2: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">a2</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Ausagbe b1: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">b1</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Ausagbe b2: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">b2</span><span class="p">);</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Ausagbe f: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">f</span><span class="p">);</span>
+
+        <span class="n">free</span><span class="p">(</span><span class="n">a1</span><span class="p">);</span>
+
+        <span class="n">a1</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+        <span class="n">b1</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Überlegung:</p>
+<a class="reference internal image-reference" href="_images/aufgabe.png"><img alt="" src="_images/aufgabe.png" style="width: 200px;" /></a>
+<p>Lösung:</p>
+<div class="line-block">
+<div class="line">a1 -&gt; Karl</div>
+<div class="line">a2 -&gt; Hans</div>
+<div class="line">b1 -&gt; Karl</div>
+<div class="line">b2 -&gt; Hans</div>
+<div class="line">f -&gt; Karl</div>
+</div>
+</div>
+<div class="section" id="zeiger-auf-zeiger">
+<h2>Zeiger auf Zeiger<a class="headerlink" href="#zeiger-auf-zeiger" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Codebeispiel:</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cm">/*</span>
+<span class="cm">int main(int arg, char **argv)</span>
+<span class="cm">{*/</span>
+        <span class="cm">/* arg = Anzahl der Argumente */</span>
+        <span class="cm">/* argv = Zeiger auf Zeiger der Argumente */</span>
+<span class="cm">/*</span>
+<span class="cm">        int arg=5;</span>
+<span class="cm">        char **argv = NULL;</span>
+
+
+
+<span class="cm">        int i;</span>
+
+<span class="cm">        for(i=0; i&lt;arg; i++)</span>
+<span class="cm">        {</span>
+<span class="cm">                printf(&quot;Argument %d ist %s\n&quot;, i, argv[i]);</span>
+<span class="cm">        }</span>
+
+<span class="cm">        return 0;</span>
+<span class="cm">}</span>
+<span class="cm">*/</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kt">int</span> <span class="n">arg</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">i</span><span class="p">;</span>
+        <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+        <span class="cm">/*ERSTE EBENE*/</span>
+        <span class="n">argv</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">**</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span> <span class="o">*</span> <span class="n">arg</span><span class="p">);</span>
+                                      <span class="cm">/*(8 * 5 = 40)*/</span>
+        <span class="cm">/*ZWEITE EBENE*/</span>
+        <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="o">*</span><span class="mi">20</span><span class="p">);</span>
+        <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="o">*</span><span class="mi">20</span><span class="p">);</span>
+        <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="o">*</span><span class="mi">20</span><span class="p">);</span>
+        <span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="o">*</span><span class="mi">20</span><span class="p">);</span>
+        <span class="n">argv</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="o">*</span><span class="mi">20</span><span class="p">);</span>
+
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&quot;Hans&quot;</span><span class="p">);</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">&quot;Karl&quot;</span><span class="p">);</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="s">&quot;Friedrich&quot;</span><span class="p">);</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="s">&quot;Joseph&quot;</span><span class="p">);</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="s">&quot;Tina&quot;</span><span class="p">);</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">arg</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Argument %d ist %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+
+        <span class="cm">/*Freigeben zweite Ebene*/</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">arg</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">free</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+
+        <span class="cm">/*Freigeben erste Ebene*/</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">argv</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Das ganze als Bild:</p>
+<a class="reference internal image-reference" href="_images/zeigeraufzeiger.png"><img alt="" src="_images/zeigeraufzeiger.png" style="width: 800px;" /></a>
+<div class="section" id="dynamisches-allokieren-von-speicher">
+<h3>Dynamisches Allokieren von Speicher:<a class="headerlink" href="#dynamisches-allokieren-von-speicher" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">mymallocstrcopy</span><span class="p">(</span><span class="kt">char</span> <span class="o">**</span> <span class="n">dst</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">src</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="o">*</span><span class="n">dst</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">src</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">));</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="o">*</span><span class="n">dst</span><span class="p">,</span><span class="n">src</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kt">char</span> <span class="o">*</span><span class="n">s</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+        <span class="n">mymallocstrcopy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span> <span class="s">&quot;Mustermann&quot;</span><span class="p">);</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unser s ist jetzt: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">s</span><span class="p">);</span>
+
+        <span class="n">free</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/DynamischesAllokierenVonSpeicher.png"><img alt="" src="_images/DynamischesAllokierenVonSpeicher.png" style="width: 800px;" /></a>
+</div>
+<div class="section" id="aufgabe">
+<h3>Aufgabe:<a class="headerlink" href="#aufgabe" title="Link zu dieser Überschrift">¶</a></h3>
+<p>String zerlegen mit strtok:
+username:vorname:nachname:geburtsjahr</p>
+<p>Ausgabe:
+Username ist: username
+Nachname ist: nachname
+Vorname ist: vorname
+Geburtsjahr ist: geburtsjahr</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">printpuffer</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">size</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">size</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Zeichen an Stelle %d ist %c (%d)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kt">char</span> <span class="o">*</span> <span class="n">puffer</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="o">*</span><span class="mi">2048</span><span class="p">);</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">puffer</span><span class="p">,</span> <span class="s">&quot;musterm:Hans:Mustermann:1999&quot;</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Puffer ist: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">puffer</span><span class="p">);</span>
+        <span class="n">printpuffer</span><span class="p">(</span><span class="n">puffer</span><span class="p">,</span><span class="mi">29</span><span class="p">);</span>
+
+        <span class="kt">char</span> <span class="o">*</span> <span class="n">temp</span><span class="p">;</span>
+
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">strtok</span><span class="p">(</span><span class="n">puffer</span><span class="p">,</span><span class="s">&quot;:&quot;</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Username ist: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">temp</span><span class="p">);</span>
+
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">strtok</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="s">&quot;:&quot;</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Vorname ist: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">temp</span><span class="p">);</span>
+
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">strtok</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="s">&quot;:&quot;</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Nachname ist: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">temp</span><span class="p">);</span>
+
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">strtok</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="s">&quot;:&quot;</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Geburtsjahr ist: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">temp</span><span class="p">);</span>
+
+        <span class="cm">/*Achtung strtok verädnert den Ausgangsstring*/</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Was ist mit unserem Puffer passiert: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">puffer</span><span class="p">);</span>
+        <span class="n">printpuffer</span><span class="p">(</span><span class="n">puffer</span><span class="p">,</span><span class="mi">29</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Vorlesung</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Vorlesung1.html">Vorlesung1 Montag 4. Oktober 2021</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vorlesung2 Montag 11. Oktober 2021</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#intro-zeiger">Intro Zeiger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#klausuraufgabe-was-sind-die-ausgaben">Klausuraufgabe Was sind die Ausgaben?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zeiger-auf-zeiger">Zeiger auf Zeiger</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Vorlesung1.html" title="vorheriges Kapitel">Vorlesung1 Montag 4. Oktober 2021</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Schnellsuche</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Los" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Kev.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="_sources/Vorlesung2.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

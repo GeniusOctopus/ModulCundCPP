@@ -1,0 +1,358 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Vorlesung1 Montag 4. Oktober 2021 &#8212; Vorlesung 1 Dokumentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
+    <link rel="search" title="Suche" href="search.html" />
+    <link rel="prev" title="Welcome to Vorlesung’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="vorlesung1-montag-4-oktober-2021">
+<h1>Vorlesung1 Montag 4. Oktober 2021<a class="headerlink" href="#vorlesung1-montag-4-oktober-2021" title="Link zu dieser Überschrift">¶</a></h1>
+<div class="section" id="intro">
+<h2>Intro:<a class="headerlink" href="#intro" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Klausur:</p>
+<p>2 Teile, ein praktischer und ein theoretischer.</p>
+<p>Man kann sich einen Teil raussuchen.</p>
+<p>Jeder kann mit einer 1 aus der Klausur gehen.</p>
+<p>Mit Zettel und Stift!</p>
+<p>Vorlesung:</p>
+<p>Gruppenarbeit in jeder Vorlesung.</p>
+</div>
+<div class="section" id="wichtige-kommandos-im-terminal">
+<h2>Wichtige Kommandos im Terminal:<a class="headerlink" href="#wichtige-kommandos-im-terminal" title="Link zu dieser Überschrift">¶</a></h2>
+<ul class="simple">
+<li>dir (aktuelles Verzeichnis anzeigen)</li>
+<li>ls -a (alles im Verzeichnis)</li>
+<li>ls -l (mehr Infos)</li>
+<li>ls -la (kurze Schreibweise, Reihenfolge von Parametern kann wichtig sein)</li>
+<li>mkdir (Verzeichnis erstellen)</li>
+<li>cd (Verzeichnis wechseln)</li>
+<li>pwd (zeigt aktuelles Verzeichnis an)</li>
+<li>touch (Datei anlegen)</li>
+<li>&gt; (Datei anlegen: &gt; test.txt)</li>
+<li>. aktuelles Verzeichnis</li>
+<li>.. vorheriges Verzeichnis (Baumstruktur)</li>
+<li>rm (Verzeichnis löschen, -r (rekursiv))</li>
+<li>Zwei Arten von Links (ln datei.txt hardlink.txt, ln -s datei2.txt softlink.txt, Hardlink wird als normale Datei angezeigt, Softlink wird als Link auf die Datei angezeigt)</li>
+<li>cat (Dateiinhalt anzeigen)</li>
+</ul>
+<div class="section" id="erlauterung-ls-la">
+<h3>Erläuterung ls -la:<a class="headerlink" href="#erlauterung-ls-la" title="Link zu dieser Überschrift">¶</a></h3>
+<p>drwxrwxr-x
+-rw-rw-r–</p>
+<p>1 Zeichen d=link, -=Datei</p>
+<p>3 Zeichen read, write, execute für aktuellen Nutzer</p>
+<p>3 Zeichen für die Gruppe</p>
+<p>3 Zeichen für alle anderen</p>
+</div>
+<div class="section" id="erlauterung-ln">
+<h3>Erläuterung ln:<a class="headerlink" href="#erlauterung-ln" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Hardlink ertellt einen Verweis auf den Inhalt der Originaldatei (Änderungen in beiden ist in jeweils andern vorhanden, ändern ihre Größe, funktionieren nur in der gleichen Partition, bei Löschen )</p>
+<p>Softlink erstellt einen Verweis auf die eigentliche Datei (funktionieren immer, auch Partitionsübergreifen, bei Löschen des Softlinks geht auch die Originaldatei kaputt)</p>
+</div>
+<div class="section" id="vim-editor">
+<h3>VIM Editor:<a class="headerlink" href="#vim-editor" title="Link zu dieser Überschrift">¶</a></h3>
+<ul class="simple">
+<li>vim datei.txt (Erstellt neue Datei und öffnet sie in vim)</li>
+</ul>
+<p>Kommandomodus:</p>
+<ul class="simple">
+<li>mit ESC in den Kommandomodus wechseln</li>
+<li>:w zum Speichern</li>
+<li>yy Zeile kopieren</li>
+<li>p Zeile unterhalb des Cursors einfügen</li>
+<li>y3y 3 Zeilen kopieren</li>
+<li>P fügt oben ein</li>
+<li>/TextZumSuchen Text suchen</li>
+<li>o neue Zeile unten und Cursor setzen</li>
+<li>O neue Zeile oben</li>
+<li>u Rückgängig</li>
+<li>a einzeichen weiter und Editiermodus</li>
+<li>A Ende und Editiermodus</li>
+<li>mit i in den Einfügemodus wechseln</li>
+<li>mit I Zeilenanfang und Editiermodus</li>
+<li>:s/Zeile/Linie/g Ersetzen von Zeichen, wobei g ein regulärer Ausdruck ist</li>
+</ul>
+</div>
+</div>
+<div class="section" id="grundlagen-c">
+<h2>Grundlagen C:<a class="headerlink" href="#grundlagen-c" title="Link zu dieser Überschrift">¶</a></h2>
+<ul class="simple">
+<li>In der Vorlesung verwenden wir ANSI C</li>
+<li>Stammt aus den 70ern</li>
+<li>Siehe auch Kommentare im Programmcode</li>
+<li>// Kommentar IST IN ANSI C NICHT GÜLTIG, nur /**/ sind zugelassen</li>
+<li>Es gibt Funktionen ohne Rückgabewert aber sind nicht konform</li>
+<li>cc -ansi -o 01_erstesc.bin 01erstexc.c zum kompilieren</li>
+<li>mit ./01_erstesc.bin Programm ausführen</li>
+<li>Bsp. eines Hello World Programmes:</li>
+</ul>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cm">/*Unser erstes C Programm und dies ist der erste Kommentar*/</span>
+<span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt; /*Header C-LIB*/</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="cm">/*Funktion, Einstiegspunkt, leerer Parameter*/</span>
+<span class="p">{</span> <span class="cm">/*Codestyle*/</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hallo ihr lieben Studenten</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="cm">/*Verlässt die Funktion*/</span>
+<span class="p">}</span>
+<span class="cm">/*Programm beendet*/</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Es gibt eigentlich nur while-Schleifen, For-Schleife wird vom Compiler zu while-Schleife mit goto gemacht (siehe dazu 03schleifen.c und 04dowhile.c)</li>
+<li>Bsp. Schleife:</li>
+</ul>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="cm">/*Am besten hier oben Variablen deklarieren.</span>
+<span class="cm">        Der Compiler schiebt die sowieso hoch,</span>
+<span class="cm">        weil bei Eintritt in die Funktion,</span>
+<span class="cm">        die Speicherbereiche klar sein müssen.</span>
+<span class="cm">        */</span>
+        <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+
+        <span class="cm">/*Geht nicht in ANSI C</span>
+<span class="cm">        for(int i=0; i&lt;10, i++)</span>
+<span class="cm">        {...}</span>
+<span class="cm">        */</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">,</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="cm">/*%d ist Platzhalter für eine dezimale Zahl*/</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;i ist %d und i*i ist %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">i</span><span class="p">,(</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">));</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Beispiele für Schleifen in C</li>
+<li>While-Schleife:</li>
+</ul>
+<a class="reference internal image-reference" href="_images/papWhileC.png"><img alt="Programmablaufplan While-Schleife in C" src="_images/papWhileC.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="_images/strukturdiagrammWhileC.png"><img alt="Strukturdiagramm While-Schleife in C" src="_images/strukturdiagrammWhileC.png" style="width: 400px;" /></a>
+<ul class="simple">
+<li>While-Schleife als Enlosschleife mit Abbruchbedingung:</li>
+</ul>
+<a class="reference internal image-reference" href="_images/papWhileEndlosschleifeC.png"><img alt="Programmablaufplan While-Schleife Endlosschleife in C" src="_images/papWhileEndlosschleifeC.png" style="width: 400px;" /></a>
+<ul class="simple">
+<li>While Schleife mit <cite>continue</cite>:</li>
+</ul>
+<a class="reference internal image-reference" href="_images/papWhileContinue.png"><img alt="Programmablaufplan While-Schleife mit continue in C" src="_images/papWhileContinue.png" style="width: 400px;" /></a>
+<ul class="simple">
+<li>in C wird der Überlauf nicht abgefangen:</li>
+</ul>
+<a class="reference internal image-reference" href="_images/dataTypeByte.png"><img alt="Datentyp Byte in C" src="_images/dataTypeByte.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="_images/overflow.png"><img alt="Problem des Überlauf in C" src="_images/overflow.png" style="width: 400px;" /></a>
+<ul class="simple">
+<li>Codebeispiel für den Überlauf:</li>
+</ul>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#inlude&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="cm">/*unsigned als Schlüsselwort für Datentypen ohne Vorzeichen*/</span>
+        <span class="kt">unsigned</span> <span class="kt">short</span> <span class="n">s1</span> <span class="o">=</span> <span class="mi">65535</span><span class="p">;</span>
+        <span class="kt">unsigned</span> <span class="kt">short</span> <span class="n">s2</span><span class="p">;</span>
+
+        <span class="n">s2</span> <span class="o">=</span> <span class="n">s1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;s1 ist %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">s1</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;s2 ist %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">s2</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Reihenfolgen der includes sind bei einigen Bibliotheken nicht egal</li>
+<li>gdb für das Debugging</li>
+<li>Rekursion ist in C implementiert</li>
+<li>Bsp. Umwandeln einer Dezimalzahl in eine Binärzahl mittels Rekursion:</li>
+</ul>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cm">/*555 -&gt; 1000101011*/</span>
+<span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">getBinary</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="n">getBinary</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="n">a</span><span class="o">%</span><span class="mi">2</span><span class="p">);</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">255</span><span class="p">;</span>
+        <span class="n">getBinary</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Dazu ein Diagramm mit den Funktionsaufrufen:</li>
+</ul>
+<a class="reference internal image-reference" href="_images/rekursion.png"><img alt="Funktionsaufrufe für die Rekursion zur Umwandlung einer Dezimalzahl in eine Binärzahl" src="_images/rekursion.png" style="width: 800px;" /></a>
+<ul class="simple">
+<li>Zeichenketten mit #include&lt;string.h&gt;</li>
+<li>Strings werden als char Array (bzw. Vector) deklariert</li>
+<li>Bei Iteration eines 10 Zeichen langen char Arrays mit einem Index &gt;=10, wird auf den Speicher nach dem Array zugegriffen! (siehe 11_vectors.c)</li>
+<li>Im gdb x32c s1 Speicher auslesen, man erhält ASCII Zeichen</li>
+<li>ASCII Tabelle mit „man ascii“ anzeigen lassen</li>
+<li>\000 (null character) am Ende eines string</li>
+<li>Man kann also nach diesem Zeichen prüfen, um mit strings zu arbeiten (printf Funktion macht das, um die Ausgabe auf der Konsole abzubrechen)</li>
+</ul>
+</div>
+<div class="section" id="gdb-debugger">
+<h2>GDB Debugger<a class="headerlink" href="#gdb-debugger" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="section" id="wichtige-befehle">
+<h3>Wichtige Befehle<a class="headerlink" href="#wichtige-befehle" title="Link zu dieser Überschrift">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>run</td>
+<td>Starten</td>
+</tr>
+<tr class="row-even"><td>list</td>
+<td>Code anzeigen</td>
+</tr>
+<tr class="row-odd"><td>list 15</td>
+<td>Code an Zeile 15 anzeigen</td>
+</tr>
+<tr class="row-even"><td>break 3</td>
+<td>Breakpoint an Zeile 3 setzen</td>
+</tr>
+<tr class="row-odd"><td>backtrace</td>
+<td>Fuktionsaufruf Hierarchie anzeigen</td>
+</tr>
+<tr class="row-even"><td>print n</td>
+<td>Inhalt der Variablen n ausgeben</td>
+</tr>
+<tr class="row-odd"><td>info locals</td>
+<td>Inhalt aller lokaler Variablen ausgeben</td>
+</tr>
+<tr class="row-even"><td>next</td>
+<td>Nächsten Befehl ausführen</td>
+</tr>
+<tr class="row-odd"><td>continue</td>
+<td>Programmablauf um nächsten Breakpoint fortsetzen</td>
+</tr>
+<tr class="row-even"><td>clear</td>
+<td>Breakpoint löschen</td>
+</tr>
+<tr class="row-odd"><td>step</td>
+<td>Gehe in die nächste Funktion (z.B. auch printf())</td>
+</tr>
+<tr class="row-even"><td>quit</td>
+<td>Dubugging beenden</td>
+</tr>
+<tr class="row-odd"><td>x\32c s1</td>
+<td>Speicher von Variabler (Vector) s1 auslesen</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Vorlesung</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vorlesung1 Montag 4. Oktober 2021</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#intro">Intro:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wichtige-kommandos-im-terminal">Wichtige Kommandos im Terminal:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grundlagen-c">Grundlagen C:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gdb-debugger">GDB Debugger</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="vorheriges Kapitel">Welcome to Vorlesung’s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Schnellsuche</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Los" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Kev.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="_sources/Vorlesung1.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
