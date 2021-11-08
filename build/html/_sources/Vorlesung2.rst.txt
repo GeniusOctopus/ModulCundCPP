@@ -472,8 +472,8 @@ Dynamisches Allokieren von Speicher:
 	:width: 800
 	:alt:
 
-Aufgabe:
-########
+Aufgabe (Klausurrelevant):
+##########################
 
 String zerlegen mit strtok:
 username:vorname:nachname:geburtsjahr

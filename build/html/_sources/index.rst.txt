@@ -12,6 +12,7 @@ Welcome to Vorlesung's documentation!
 
    Vorlesung1   
    Vorlesung2
+   Vorlesung3
 
 Indices and tables
 ==================

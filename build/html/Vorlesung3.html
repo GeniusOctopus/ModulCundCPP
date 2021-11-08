@@ -1,0 +1,134 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Vorlesung3 Montag 8.November 2021 &#8212; Vorlesung 1 Dokumentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
+    <link rel="search" title="Suche" href="search.html" />
+    <link rel="prev" title="Vorlesung2 Montag 11. Oktober 2021" href="Vorlesung2.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="vorlesung3-montag-8-november-2021">
+<h1>Vorlesung3 Montag 8.November 2021<a class="headerlink" href="#vorlesung3-montag-8-november-2021" title="Link zu dieser Überschrift">¶</a></h1>
+<div class="section" id="allokieren-von-speicher">
+<h2>Allokieren von Speicher<a class="headerlink" href="#allokieren-von-speicher" title="Link zu dieser Überschrift">¶</a></h2>
+<ul class="simple">
+<li>Was passiert, wenn man bereits allokierten Speicher vergrößert?</li>
+<li>Siehe Wiederholung.c .</li>
+<li>Wenn man sich den Speicher mit (gdb) x/48 s1 anschaut, sieht man wie die beieden Strings zueinander liegen. Es werden ‚!‘ als Marker gesetzt, um zu zeigen wie der Speicher mal reserviert wurde. ‚1 r 002‘ zeigt das Ende des allokierten Speichers.</li>
+<li>Wenn mit s1 = realloc(s1,30); Speicher neu allokiert wird, dann ändert sich nichts, wenn der neu allokierte Speicher noch passt. Sonst wird er an eine neue Stelle geschrieben.</li>
+<li>Was beim reallokieren passier, ist im folgenden Bild zu sehen</li>
+</ul>
+<a class="reference internal image-reference" href="_images/wiederholung.png"><img alt="" src="_images/wiederholung.png" style="width: 800px;" /></a>
+<ul class="simple">
+<li>Wiederholung von struct</li>
+<li>siehe structWiederholung.c</li>
+</ul>
+<a class="reference internal image-reference" href="_images/structEinstieg.png"><img alt="" src="_images/structEinstieg.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="_images/structBesserDynamisch.png"><img alt="" src="_images/structBesserDynamisch.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="_images/verketteteListen.png"><img alt="" src="_images/verketteteListen.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="_images/einfachVerketteteListe.png"><img alt="" src="_images/einfachVerketteteListe.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="_images/sortierenDerListe.png"><img alt="" src="_images/sortierenDerListe.png" style="width: 800px;" /></a>
+<ul class="simple">
+<li>Das Gleiche für eine doppelt verkettete Liste</li>
+<li>Code siehe 02_doppeltVerketteteListe.c</li>
+</ul>
+<a class="reference internal image-reference" href="_images/doppeltVerketteteListe.png"><img alt="" src="_images/doppeltVerketteteListe.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="_images/clearElements.png"><img alt="" src="_images/clearElements.png" style="width: 800px;" /></a>
+<ul class="simple">
+<li>Aufgabe (siehe 02_doppeltVerketteteListe.c sortElements() und swapElementsWithNext())</li>
+</ul>
+<a class="reference internal image-reference" href="_images/aufgabe1.png"><img alt="" src="_images/aufgabe1.png" style="width: 800px;" /></a>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Vorlesung</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Vorlesung1.html">Vorlesung1 Montag 4. Oktober 2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vorlesung2.html">Vorlesung2 Montag 11. Oktober 2021</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vorlesung3 Montag 8.November 2021</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#allokieren-von-speicher">Allokieren von Speicher</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Vorlesung2.html" title="vorheriges Kapitel">Vorlesung2 Montag 11. Oktober 2021</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Schnellsuche</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Los" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Kev.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="_sources/Vorlesung3.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
