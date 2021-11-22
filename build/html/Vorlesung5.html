@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -7,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Stichwortverzeichnis &#8212; Vorlesung 1 Dokumentation</title>
+    <title>Vorlesung5 Montag 22.November 2021 &#8212; Vorlesung 1 Dokumentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -16,8 +15,9 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <link rel="index" title="Stichwortverzeichnis" href="#" />
+    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
     <link rel="search" title="Suche" href="search.html" />
+    <link rel="prev" title="Vorlesung4 Montag 15.November 2021" href="Vorlesung4.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -31,11 +31,32 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
+  <div class="section" id="vorlesung5-montag-22-november-2021">
+<h1>Vorlesung5 Montag 22.November 2021<a class="headerlink" href="#vorlesung5-montag-22-november-2021" title="Link zu dieser Überschrift">¶</a></h1>
+<ul class="simple">
+<li>ein Kosntruktor gibt immer das Objekt selbst zurück, keinen Typen</li>
+<li>man keinen Konstruktor in einem anderen Konstruktor der gleichen Klasse aufrufen</li>
+<li>Überladen des = Operators (Zuweisungsoperator):</li>
+</ul>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+        <span class="n">crational</span><span class="o">&amp;</span> <span class="k">operator</span> <span class="o">=</span> <span class="p">(</span><span class="k">const</span> <span class="n">crational</span> <span class="o">&amp;</span><span class="p">);</span>
+<span class="p">};</span>
 
-<h1 id="index">Stichwortverzeichnis</h1>
 
-<div class="genindex-jumpbox">
- 
+<span class="n">crational</span><span class="o">&amp;</span> <span class="n">crational</span><span class="o">::</span><span class="k">operator</span> <span class="o">=</span> <span class="p">(</span><span class="k">const</span> <span class="n">crational</span> <span class="o">&amp;</span> <span class="n">c</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">numerator</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">numerator</span><span class="p">;</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">denominator</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">denominator</span><span class="p">;</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">shorten</span><span class="p">();</span>
+        <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>ist eine Wandlungsfähigkeit zwischen int und crational vorhanden? ja -&gt; temporäre Variable wird überblendet und erst der Kosntruktor aufgerufen, anschließend wird der WErt zugewiesen</li>
+</ul>
+<a class="reference internal image-reference" href="_images/22november.png"><img alt="" src="_images/22november.png" style="width: 800px;" /></a>
 </div>
 
 
@@ -55,18 +76,19 @@
 
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Vorlesung1.html">Vorlesung1 Montag 4. Oktober 2021</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Vorlesung2.html">Vorlesung2 Montag 11. Oktober 2021</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Vorlesung3.html">Vorlesung3 Montag 8.November 2021</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Vorlesung4.html">Vorlesung4 Montag 15.November 2021</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Vorlesung5.html">Vorlesung5 Montag 22.November 2021</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vorlesung5 Montag 22.November 2021</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Vorlesung4.html" title="vorheriges Kapitel">Vorlesung4 Montag 15.November 2021</a></li>
   </ul></li>
 </ul>
 </div>
@@ -93,6 +115,9 @@
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
       
+      |
+      <a href="_sources/Vorlesung5.rst.txt"
+          rel="nofollow">Page source</a>
     </div>
 
     
