@@ -15,6 +15,7 @@ Welcome to Vorlesung's documentation!
    Vorlesung3
    Vorlesung4
    Vorlesung5
+   Vorlesung6
 
 Indices and tables
 ==================
